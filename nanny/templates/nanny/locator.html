@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nanny Locator</title>
+</head>
+<body>
+  <main>
+    Current address: 44 Tehama St, San Francisco, CA<br />
+    Longitude: {{ report }}<br />
+    {% for key, value in reports.items %}
+      <li>{{ key }} : {{ value }}</li>
+    {% endfor %}
+    Latitude: {{ report }}<br />
+
+    {% if submission %}
+      <p>Thank you for submitting project!</p>
+    {% endif %}
+
+    <form action="/locator/" method="post">
+      {% csrf_token %}
+        <label for="add_proj">Add Project?</label>
+        <input id="add_proj" type="hidden" name="add_proj" value="{{ report.summary.project }}">
+        <input type="submit" value="OK">
+    </form>
+
+  </main>
+</body>
+</html>

@@ -70,5 +70,6 @@ urlpatterns = [
     path('parentProcess', views.parentProcess, name = 'parentProcess'),
     path('nannySignUp', views.nannySignUp, name = 'nannySignUp'),
     path('nannyProcess', views.nannyProcess, name = 'nannyProcess'),
-    path('nanny/done', views.done, name = 'done')
+    path('nanny/done', views.done, name = 'done'),
+    path('nanny/locator', views.locator, name = 'locator')
 ]
