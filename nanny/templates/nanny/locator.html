@@ -8,8 +8,8 @@
 <body>
   <main>
     Current address: 44 Tehama St, San Francisco, CA<br />
-    Longitude:
-    Latitude: {{ report.summary }}<br />
+    Longitude: {{ report.summary.coordinates.0 }}<br />
+    Latitude: {{ report.summary.coordinates.1 }}<br />
 
     {% if submission %}
       <p>Thank you for submitting project!</p>
