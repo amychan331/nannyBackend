@@ -15,7 +15,7 @@
       <p>Thank you for submitting project!</p>
     {% endif %}
 
-    <form action="/locator/" method="post">
+    <form action="/nanny/locator" method="post">
       {% csrf_token %}
         <label for="add_proj">Add Project?</label>
         <input id="add_proj" type="hidden" name="add_proj" value="{{ report.summary.project }}">
