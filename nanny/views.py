@@ -8,6 +8,7 @@ from .models import Host
 import os
 import requests
 from requests.exceptions import HTTPError
+import json
 
 
 def index(request):
@@ -59,7 +60,6 @@ def locator(request):
     template = loader.get_template('nanny/locator.html')
     # reportID = get_tomtom_report().summary.project
     report = get_tomtom_report()
-    print(type(report))
     submission = False
     if request.method == 'POST' and request.POST["projname"]:
         try:
@@ -69,7 +69,7 @@ def locator(request):
             print(f'Other error occurred: {err}')
 
     context = {
-    "report": report,
+    "report": json.loads(report),
     "submission": submission
     }
     return HttpResponse(template.render(context, request))
