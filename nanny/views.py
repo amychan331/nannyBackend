@@ -58,7 +58,8 @@ def done(request):
 def locator(request):
     template = loader.get_template('nanny/locator.html')
     # reportID = get_tomtom_report().summary.project
-    reports = get_tomtom_report()
+    report = get_tomtom_report()
+    print(type(report))
     submission = False
     if request.method == 'POST' and request.POST["projname"]:
         try:
@@ -68,7 +69,7 @@ def locator(request):
             print(f'Other error occurred: {err}')
 
     context = {
-    "reports": reports,
+    "report": report,
     "submission": submission
     }
     return HttpResponse(template.render(context, request))
